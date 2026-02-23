@@ -1,0 +1,28 @@
+package ui
+
+import "github.com/atvirokodosprendimai/networkmap/internal/ui/base"
+
+templ LoginPage(errorMessage string) {
+	@base.Layout("NetworkMap Login") {
+		<main class="mx-auto flex min-h-screen max-w-md items-center p-6">
+			<section class="w-full rounded-2xl border border-slate-300 bg-white p-6 shadow-sm">
+				<h1 class="text-2xl font-bold text-slate-900">Sign in</h1>
+				<p class="mt-2 text-sm text-slate-600">Use your NetworkMap account to access GUI and API tools.</p>
+				if errorMessage != "" {
+					<div class="mt-4 rounded-lg border border-rose-300 bg-rose-50 p-3 text-sm text-rose-900">{ errorMessage }</div>
+				}
+			<form class="mt-4 space-y-4" method="POST" action="/login">
+				<div class="relative">
+					<input type="email" id="login-email" name="email" class="peer block w-full appearance-none rounded-lg border border-slate-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-slate-900 focus:border-sky-600 focus:outline-none focus:ring-0" placeholder=" " required autocomplete="email" />
+					<label for="login-email" class="absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-white px-2 text-sm text-slate-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-sky-600">Email</label>
+				</div>
+				<div class="relative">
+					<input type="password" id="login-password" name="password" class="peer block w-full appearance-none rounded-lg border border-slate-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-slate-900 focus:border-sky-600 focus:outline-none focus:ring-0" placeholder=" " required autocomplete="current-password" />
+					<label for="login-password" class="absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-white px-2 text-sm text-slate-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-sky-600">Password</label>
+				</div>
+				<button type="submit" class="w-full rounded-lg bg-sky-600 px-3 py-2 text-white hover:bg-sky-700">Sign in</button>
+			</form>
+			</section>
+		</main>
+	}
+}

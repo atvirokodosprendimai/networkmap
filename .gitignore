@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Go build/test artifacts
+bin/
+dist/
+*.test
+*.out
+coverage.out
+
+# Local runtime artifacts
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sock
+
+# Local CLI config
+.networkmap/
